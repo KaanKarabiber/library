@@ -1,4 +1,11 @@
 const myLibrary = [{name: "mambo", author: "cino", page:112, read:true}, {name: "mambo", author: "cino", page:112, read:false}];
+function Book(name, author, page, read){
+    this.name = name;
+    this.author = author;
+    this.page = page;
+    this.read = read;
+}
+
 const dialog = document.querySelector("dialog");
 const form = document.querySelector("#book-form");
 const newBookButton = document.querySelector("#add-book");
@@ -9,13 +16,6 @@ newBookButton.addEventListener('click', () =>{
 });
 
 form.addEventListener('submit', addBookToLibrary);
-
-function Book(name, author, page, read){
-    this.name = name;
-    this.author = author;
-    this.page = page;
-    this.read = read;
-}
 
 function addBookToLibrary(event){
     event.preventDefault();
@@ -53,17 +53,28 @@ function displayBooks(library){
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.addEventListener("click", () => removeBook(index));
+
+        const readCheckbox = document.createElement("input");
+        readCheckbox.type = "checkbox";
+        readCheckbox.checked = book.read;
+        readCheckbox.addEventListener("change", () => toggleReadStatus(index)); 
+
+        const readLabel = document.createElement("label");
+        readLabel.textContent = "Read: ";
+        readLabel.appendChild(readCheckbox);
         
-        card.append(name, author, pages, readStatus, removeButton);
+        card.append(name, author, pages, readStatus, readLabel, removeButton);
         container.append(card);
     });  
 }
 function removeBook(index) {
     myLibrary.splice(index, 1);
-    console.log(myLibrary);  
     displayBooks(myLibrary);  
 }
-
+function toggleReadStatus(index) {
+    myLibrary[index].read = !myLibrary[index].read;  
+    displayBooks(myLibrary); 
+}
 displayBooks(myLibrary);
 
 
