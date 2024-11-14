@@ -47,13 +47,6 @@ function displayBooks(library){
         const pages = document.createElement("p");
         pages.textContent = `Pages: ${book.page}`;
 
-        const readStatus = document.createElement("p");
-        readStatus.textContent = `Read: ${book.read ? "Yes" : "No"}`;
-
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
-        removeButton.addEventListener("click", () => removeBook(index));
-
         const readCheckbox = document.createElement("input");
         readCheckbox.type = "checkbox";
         readCheckbox.checked = book.read;
@@ -62,8 +55,13 @@ function displayBooks(library){
         const readLabel = document.createElement("label");
         readLabel.textContent = "Read: ";
         readLabel.appendChild(readCheckbox);
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => removeBook(index));
+
         
-        card.append(name, author, pages, readStatus, readLabel, removeButton);
+        card.append(name, author, pages, readLabel, removeButton);
         container.append(card);
     });  
 }
