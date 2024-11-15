@@ -1,4 +1,4 @@
-const myLibrary = [{name: "mambo", author: "cino", page:112, read:true}, {name: "mambo", author: "cino", page:112, read:false}];
+const myLibrary = [{name: "mambo", author: "cino", page:112, read:true}, {name: "mambo", author: "cino", page:112, read:false},{name: "mambo", author: "cino", page:112, read:true},{name: "mambo", author: "cino", page:112, read:true},{name: "mambo", author: "cino", page:112, read:true},{name: "mambo", author: "cino", page:112, read:true}];
 function Book(name, author, page, read){
     this.name = name;
     this.author = author;
@@ -31,16 +31,21 @@ function addBookToLibrary(event){
     form.reset();
     dialog.close();
 }
-function displayBooks(library){
+function displayBooks(library) {
     const container = document.querySelector(".container");
-    container.innerHTML = "";
+
+    // Remove all dynamically created book cards first
+    container.querySelectorAll(".book-card").forEach(card => card.remove());
+
+    // Re-create book cards based on the updated library
     library.forEach((book, index) => {
         const card = document.createElement("div");
         card.classList.add("book-card");
+        card.setAttribute("data-id", index);
 
         const name = document.createElement("p");
         name.textContent = `Name: ${book.name}`;
-        
+
         const author = document.createElement("p");
         author.textContent = `Author: ${book.author}`;
 
@@ -50,7 +55,7 @@ function displayBooks(library){
         const readCheckbox = document.createElement("input");
         readCheckbox.type = "checkbox";
         readCheckbox.checked = book.read;
-        readCheckbox.addEventListener("change", () => toggleReadStatus(index)); 
+        readCheckbox.addEventListener("change", () => toggleReadStatus(index));
 
         const readLabel = document.createElement("label");
         readLabel.textContent = "Read: ";
@@ -58,13 +63,15 @@ function displayBooks(library){
 
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
-        removeButton.addEventListener("click", () => removeBook(index));
+        removeButton.addEventListener("click", () => {
+            removeBook(index);
+        });
 
-        
         card.append(name, author, pages, readLabel, removeButton);
         container.append(card);
-    });  
+    });
 }
+
 function removeBook(index) {
     myLibrary.splice(index, 1);
     displayBooks(myLibrary);  

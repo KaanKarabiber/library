@@ -8,8 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="icons/bookshelf.svg" alt="Library">
-    <h1>Library</h1>
+    <div class="header">
+        <img src="icons/bookshelf.svg" alt="Library" id="logo">
+        <h1>Library</h1>
+    </div>
     <dialog>
         <form action="submit" id="book-form">
             <input type="text" id="name" required>
@@ -27,7 +29,9 @@
             <button type="submit" id="submit-button">Submit</button>
         </form>
     </dialog>
-    <button id="add-book"><img src="icons/plus-thick.svg" alt=""></button>
-    <div class="container"></div>
+    
+    <div class="container">
+    <div class="add-book-card"><button id="add-book"><img src="icons/plus-thick.svg" alt="add"></button></div>
+    </div>
 </body>
 </html>
