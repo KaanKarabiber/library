@@ -17,21 +17,23 @@
     </div>
     <dialog>
         <form action="submit" id="book-form">
-            <p>Add a book</p>
+            <button class="close-button"><img src="icons/window-close.svg" alt=""></button>
+            <h3>Add a book</h3>
+            <label for="name">Title:</label>
             <input type="text" id="name" required>
-            <label for="name">Book Name</label>
 
+            <label for="author">Author:</label>
             <input type="text" id="author" required>
-            <label for="author">Author</label>
 
+            <label for="pages">Page:</label>
             <input type="number" id="pages" required>
-            <label for="pages">Page</label>
 
-            <input type="checkbox" id="read">
-            <label for="read">Read</label>
+            <div class="read-dialog">
+                <label for="read">Read</label>
+                <input type="checkbox" id="read">
+            </div>
             
             <button type="submit" id="submit-button">Submit</button>
-            <button class="close-button">here</button>
         </form>
     </dialog>
     

@@ -1,4 +1,8 @@
-const myLibrary = [{name: "mambo", author: "cino", page:112, read:true}, {name: "mambo", author: "cino", page:112, read:false},{name: "mambo", author: "cino", page:112, read:true},{name: "mambo", author: "cino", page:112, read:true},{name: "mambo", author: "cino", page:112, read:true},{name: "mambo", author: "cino", page:112, read:true}];
+const book1 = new Book("Don Quixote", "Miguel de Cervantes", 433, true);
+const book2 = new Book("Frankenstein", "Mary Shelley", 331, false);
+const book3 = new Book("Brave New World", "Aldous Huxley", 577, true);
+const myLibrary = [book1, book2, book3];
+
 function Book(name, author, page, read){
     this.name = name;
     this.author = author;
@@ -14,7 +18,8 @@ const submitButton = document.querySelector("#submit-button");
 newBookButton.addEventListener('click', () =>{
     dialog.showModal();
 });
-
+const closeButton = document.querySelector(".close-button");
+closeButton.addEventListener('click', () => dialog.close());
 form.addEventListener('submit', addBookToLibrary);
 
 function addBookToLibrary(event){
@@ -44,7 +49,7 @@ function displayBooks(library) {
         card.setAttribute("data-id", index);
 
         const name = document.createElement("p");
-        name.textContent = `Title: ${book.name}`;
+        name.textContent = `Title: "${book.name}"`;
 
         const author = document.createElement("p");
         author.textContent = `Author: ${book.author}`;

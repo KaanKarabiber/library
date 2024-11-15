@@ -5,6 +5,7 @@ body, html{
     flex-direction: column;
     height: 100%;
     font-family: "Oxanium", sans-serif;
+    --primary-color: #4ade80;
 }
 .header{
     display: flex;
@@ -73,12 +74,12 @@ input[type="checkbox"]:checked::before {
     left: 3px;
     width: 10px;
     height: 10px;
-    background-color: #4ade80;  /* Color when checked */
+    background-color: var(--primary-color);  
     border-radius: 1px;
     transition: background-color 0.3s ease;
 }
 input[type="checkbox"]:hover {
-    border-color: #4ade80; /* Add hover effect for border */
+    border-color: var(--primary-color); 
 }
 label{
     display: flex;
@@ -95,6 +96,45 @@ label{
 .remove-button:hover{
     background-color: red;
     color: #fafafa;
+}
+dialog{
+    width: 300px;
+    height: 250px;
+}
+dialog[open] ~ * {
+    filter: blur(3px);
+}
+#book-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: -10px;  
+    right: -10px; 
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.read-dialog{
+    display: flex;
+}
+#submit-button{
+    background-color: var(--primary-color);
+    width: 100px;
+    border-radius: 10px;
+    font-family: "Oxanium", sans-serif;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    right: 0px;
+    bottom: -30px;
 }
 
 
