@@ -3,11 +3,15 @@ body, html{
     margin: 0; 
     display: flex;
     flex-direction: column;
+    height: 100%;
+    font-family: "Oxanium", sans-serif;
 }
 .header{
     display: flex;
     align-items: center;
     background-color: #f0fdfa;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    padding-left: 20px;
 }
 #logo{
     height: 4rem;
@@ -19,23 +23,78 @@ body, html{
     border-radius: 50%; 
     border: none; 
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+#add-book:hover {
+    transform: scale(2); 
+}
+.card{
+    width: 275px;
+    height: 275px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    width: 100%;
 }
 .add-book-card{
-    width: 200px;
-    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
 }
 .book-card{
-    width: 200px;
-    height: 200px;
-    background-color: aqua;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
     gap: 16px; 
-    padding: 16px;
+    padding: 30px;
 }
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+}
+input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #4ade80;  /* Color when checked */
+    border-radius: 1px;
+    transition: background-color 0.3s ease;
+}
+input[type="checkbox"]:hover {
+    border-color: #4ade80; /* Add hover effect for border */
+}
+label{
+    display: flex;
+    align-items: center;
+}
+.remove-button{
+    width: 100px;
+    height: 30px;
+    border-radius: 1rem;
+    align-self: flex-end;
+    font-family: "Oxanium", sans-serif;
+    font-weight: bold;
+}
+.remove-button:hover{
+    background-color: red;
+    color: #fafafa;
+}
+
+

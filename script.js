@@ -40,11 +40,11 @@ function displayBooks(library) {
     // Re-create book cards based on the updated library
     library.forEach((book, index) => {
         const card = document.createElement("div");
-        card.classList.add("book-card");
+        card.classList.add("book-card", "card");
         card.setAttribute("data-id", index);
 
         const name = document.createElement("p");
-        name.textContent = `Name: ${book.name}`;
+        name.textContent = `Title: ${book.name}`;
 
         const author = document.createElement("p");
         author.textContent = `Author: ${book.author}`;
@@ -63,12 +63,14 @@ function displayBooks(library) {
 
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
+        removeButton.classList.add("remove-button");
         removeButton.addEventListener("click", () => {
             removeBook(index);
         });
-
+        
         card.append(name, author, pages, readLabel, removeButton);
         container.append(card);
+        book.read ? card.style.boxShadow = "0px 0px 5px #4ade80" : card.style.boxShadow = "0px 0px 5px #ef4444";
     });
 }
 

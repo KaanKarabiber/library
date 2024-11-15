@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Michroma&family=New+Rocker&family=Nova+Square&family=Oxanium:wght@200..800&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <title>Library</title>
 </head>
 <body>
     <div class="header">
@@ -14,6 +17,7 @@
     </div>
     <dialog>
         <form action="submit" id="book-form">
+            <p>Add a book</p>
             <input type="text" id="name" required>
             <label for="name">Book Name</label>
 
@@ -27,11 +31,12 @@
             <label for="read">Read</label>
             
             <button type="submit" id="submit-button">Submit</button>
+            <button class="close-button">here</button>
         </form>
     </dialog>
     
     <div class="container">
-    <div class="add-book-card"><button id="add-book"><img src="icons/plus-thick.svg" alt="add"></button></div>
+    <div class="add-book-card card"><button id="add-book"><img src="icons/plus-thick.svg" alt="add"></button></div>
     </div>
 </body>
 </html>
