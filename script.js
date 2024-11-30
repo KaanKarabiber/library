@@ -1,14 +1,15 @@
-const book1 = new Book("Don Quixote", "Miguel de Cervantes", 433, true);
-const book2 = new Book("Frankenstein", "Mary Shelley", 331, false);
-const book3 = new Book("Brave New World", "Aldous Huxley", 577, true);
-const myLibrary = [book1, book2, book3];
-
-function Book(name, author, page, read){
+class Book {
+    constructor(name, author, page, read) {
     this.name = name;
     this.author = author;
     this.page = page;
     this.read = read;
+    }
 }
+const book1 = new Book("Don Quixote", "Miguel de Cervantes", 433, true);
+const book2 = new Book("Frankenstein", "Mary Shelley", 331, false);
+const book3 = new Book("Brave New World", "Aldous Huxley", 577, true);
+const myLibrary = [book1, book2, book3];
 
 const dialog = document.querySelector("dialog");
 const form = document.querySelector("#book-form");
